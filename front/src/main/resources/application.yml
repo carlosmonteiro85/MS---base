@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: front-api
+
+logging:
+  level:
+    org:
+      atmosphere: warn
+
+  mustache:
+    check-template-location: false
+  jpa:
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never
+
+vaadin:
+  launch-browser: true
+  allowed-packages: com.vaadin, org.vaadin, dev.hilla, br.com.projeta.gestor
+
+server:
+  port: ${PORT:3000}
+
+feign:
+  client:
+    url:
+      api-auth: http://localhost:8080/api-auth/api-auth
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@localhost:8761/eureka
+projeta:
+  url:
+    login: http://localhost:8080/api-auth/api-auth/login
+    site: http://localhost:8080/projeta/projeta/
