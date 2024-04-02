@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,5 +69,11 @@ public class AuthenticationController {
 	@PostMapping("/refresh-token")
 	public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		service.refreshToken(request, response);
+	}
+
+	@PutMapping("/reset-password")
+	public ResponseEntity<Void> resetPassword(@RequestParam(required = true) Long idCredencial){
+			service.resetPassword(idCredencial);
+		return ResponseEntity.ok().build();
 	}
 }

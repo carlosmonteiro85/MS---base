@@ -132,4 +132,7 @@ public class AuthenticationService {
 		return jwtService.findRoles(token);
 	}
 
+  public void resetPassword(Long idCredencial) {
+		credencialUsuarioService.resetPassword(idCredencial);
+  }
 }

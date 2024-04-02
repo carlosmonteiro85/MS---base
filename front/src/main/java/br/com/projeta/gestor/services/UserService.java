@@ -12,6 +12,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.vaadin.flow.server.ErrorEvent;
+
+import br.com.projeta.gestor.config.ExceptionHandler;
 import br.com.projeta.gestor.data.dto.FiltrosRequest;
 import br.com.projeta.gestor.data.dto.UsuarioResponse;
 import br.com.projeta.gestor.data.dto.UsuarioResponseFilter;
@@ -30,6 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserService {
 
   private final AuthFeing dominiosFeing;
+  private final ExceptionHandler exceptionHandler;
 
   public Page<UsuarioResponse> buscarTodos(int page, int pageSize, String sortField, Sort.Direction sortDirection) {
     ResponseEntity<Page<UsuarioResponse>> response = dominiosFeing.buscaComFiltros(page, pageSize, sortField,
@@ -43,20 +47,8 @@ public class UserService {
     try {
       ResponseEntity<Void> responseEntity = dominiosFeing.saveUser(usuario);
 
-      if (Objects.nonNull(responseEntity) && responseEntity.getStatusCode().is2xxSuccessful()) {
-        menssagem = "O usuário " + usuario.getNome() + " foi adicionado com sucesso.";
-        tipo = TipoNotificacaoEnum.SUCESSO;
-      } else if (Objects.nonNull(responseEntity) && responseEntity.getStatusCode().is5xxServerError()) {
-        menssagem = "Não foi possível adicionar o usuario " + usuario.getNome();
-        tipo = TipoNotificacaoEnum.ALERTA;
-      }
-    } catch (FeignException e) {
-
-      log.error("Error : {}", e.getMessage());
-      if (e.status() == 401) {
-        throw new NegocioEsception(e.getMessage());
-      }
-      throw new RuntimeException(e.getMessage());
+    } catch (Exception e) {
+      exceptionHandler.error(new ErrorEvent(e));
     }
     return new Notificacao(menssagem, tipo);
   }
@@ -64,14 +56,10 @@ public class UserService {
   public UsuarioResponse findById(Long id) {
     try {
       return dominiosFeing.findById(id).getBody();
-    } catch (FeignException e) {
-
-      log.error("Error : {}", e.getMessage());
-      if (e.status() == 401) {
-        throw new NegocioEsception(e.getMessage());
-      }
-      throw new RuntimeException(e.getMessage());
+    } catch (Exception e) {
+      exceptionHandler.error(new ErrorEvent(e));
     }
+    return null;
   }
 
   public Notificacao updateUser(Long id, UsuarioResquest usuario) {
@@ -84,9 +72,7 @@ public class UserService {
         tipo = TipoNotificacaoEnum.SUCESSO;
       }
     } catch (Exception e) {
-      log.error("Erro ao atualizar", e);
-      menssagem = "Ocorreu um error interno\nDetalhes do error: " + e.getMessage();
-      tipo = TipoNotificacaoEnum.ERROR;
+      exceptionHandler.error(new ErrorEvent(e));
     }
     return new Notificacao(menssagem, tipo);
   }
@@ -103,38 +89,11 @@ public class UserService {
         menssagem = "Não foi possível deletar o usuario";
         tipo = TipoNotificacaoEnum.ALERTA;
       }
-    } catch (FeignException e) {
-      log.error("Error : {}", e.getMessage());
-      if(e.status() == 401){
-          throw new NegocioEsception(e.getMessage());
-      }
-      throw new RuntimeException(e.getMessage());
+    } catch (Exception e) {
+      exceptionHandler.error(new ErrorEvent(e));
     }
     return new Notificacao(menssagem, tipo);
   }
-
-  // public Optional<User> get(Long id) {
-  //   return Optional.empty();
-  // }
-
-  // public User update(User entity) {
-  //   return new User();
-  // }
-
-  // public void delete(Long id) {
-  // }
-
-  // public Page<User> list(Pageable pageable) {
-  //   return list(pageable, null, null);
-  // }
-
-  // public Page<User> list(Pageable pageable, Specification<User> filter) {
-  //   return list(pageable, filter, null);
-  // }
-
-  // public int count() {
-  //   return 0;
-  // }
 
   public <T> Page<T> list(Pageable pageable, Specification<T> filter, List<T> listaConteudo) {
     List<T> fakePageContent;
@@ -152,15 +111,24 @@ public class UserService {
     return new PageImpl<>(fakePageContent, pageable, listaConteudo.size());
   }
 
-  public Page<UsuarioResponseFilter> buscaFiltrada(int pageSize, int currentPage , String sortField, Sort.Direction sortDirection, FiltrosRequest filtros ) {
+  public Page<UsuarioResponseFilter> buscaFiltrada(int pageSize, int currentPage, String sortField,
+      Sort.Direction sortDirection, FiltrosRequest filtros) {
     if (pageSize < 0) {
       pageSize = 0; // Define um valor padrão mínimo para o tamanho da página
-  }
+    }
     return dominiosFeing.consultaFiltrada(
-      pageSize, 
+        pageSize,
         currentPage,
         sortField,
-        sortDirection, 
+        sortDirection,
         filtros).getBody();
+  }
+
+  public void reseteSenha(Long idCredencial) {
+    try {
+      dominiosFeing.resetPassword(idCredencial);
+    } catch (Exception e) {
+      exceptionHandler.error(new ErrorEvent(e));
+    }
   }
 }

@@ -1,13 +1,10 @@
 package br.com.projeta.gestor.views;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
 
 import org.vaadin.lineawesome.LineAwesomeIcon;
 
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
@@ -25,7 +22,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import br.com.projeta.gestor.data.dto.UserProfile;
@@ -33,7 +29,6 @@ import br.com.projeta.gestor.services.AuthService;
 import br.com.projeta.gestor.services.DominiosService;
 import br.com.projeta.gestor.services.UserService;
 import br.com.projeta.gestor.util.Redirect;
-import br.com.projeta.gestor.util.Utilitarios;
 import br.com.projeta.gestor.views.addressform.AddressFormView;
 import br.com.projeta.gestor.views.componentes.ProfileDialog;
 import br.com.projeta.gestor.views.creditcardform.CreditCardFormView;

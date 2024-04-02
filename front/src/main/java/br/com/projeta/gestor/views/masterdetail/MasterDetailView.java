@@ -71,6 +71,7 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
     private final Button cancel = new Button("Cancel");
     private final Button save = new Button("Save");
     private final Button deletar = new Button("Deletar");
+    private final Button reseteSenha = new Button("Resete senha");
     Boolean permissaoAtualizar = false;
     Boolean permissaoLeitura = false;
 
@@ -125,7 +126,21 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
                     });
             confirmDialog.open();
         });
+
+        reseteSenha.addClickListener(e -> {
+            ConfirmDialog confirmDialog = new ConfirmDialog("Isso irá resetar a senha default do usuário, você tem certeza?",
+                    confirmar -> {
+                        if (Boolean.TRUE.equals(confirmar)) {
+                            resetarSenhaUsuario(usuarioService, this.usuario.getCredencial().getId());
+                        }
+                    });
+            confirmDialog.open();
+        });
         VaadinSession.getCurrent().setErrorHandler(new ExceptionHandler());
+    }
+
+    private void resetarSenhaUsuario(UserService usuarioService, Long idCredencial) {
+       usuarioService.reseteSenha(idCredencial);
     }
 
     private void submeterFormulario(UserService usuarioService) {
@@ -134,7 +149,6 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
                 if (this.usuario == null) {
                     this.usuario = new UsuarioResponse();
                 }
-
                 usuarioService.updateUser(this.usuario.getId(), montarUsuarioRequest());
                 clearForm();
                 refreshGrid();
@@ -282,8 +296,9 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
             buttonLayout.setClassName("button-layout");
             cancel.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
             save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-            deletar.addThemeVariants(ButtonVariant.LUMO_SMALL);
-            buttonLayout.add(save, cancel, deletar);
+            deletar.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            reseteSenha.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            buttonLayout.add(save, cancel, deletar, reseteSenha);
             editorLayoutDiv.add(buttonLayout);
         }
     }

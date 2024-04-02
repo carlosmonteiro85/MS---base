@@ -27,7 +27,6 @@ import br.com.projeta.gestor.data.dto.UsuarioResquest;
 import br.com.projeta.gestor.data.exception.NegocioEsception;
 import br.com.projeta.gestor.services.DominiosService;
 import br.com.projeta.gestor.services.UserService;
-import br.com.projeta.gestor.util.Utilitarios;
 
 public class ProfileDialog extends Dialog {
 

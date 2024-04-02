@@ -37,6 +37,9 @@ public interface AuthFeing {
   @GetMapping("/auth/token")
   public ResponseEntity<JwtTokenRequest> obterToken();
 
+  @PutMapping("/auth/reset-password")
+	public ResponseEntity<Void> resetPassword(@RequestParam(required = true) Long idCredencial);
+
   @GetMapping("/auth")
   public ResponseEntity<Void> validarToken(@RequestParam(required = true) String token);
 

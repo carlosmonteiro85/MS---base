@@ -1,10 +1,9 @@
 package br.com.projeta.gestor.views.personform;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import com.vaadin.flow.component.AbstractField.ComponentValueChangeEvent;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -20,6 +19,7 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -36,6 +36,8 @@ import br.com.projeta.gestor.services.UserService;
 import br.com.projeta.gestor.util.Redirect;
 import br.com.projeta.gestor.util.RoleCredential;
 import br.com.projeta.gestor.views.MainLayout;
+import br.com.projeta.gestor.views.componentes.ComponentesComum;
+import br.com.projeta.gestor.views.componentes.ItemCombo;
 import br.com.projeta.gestor.views.componentes.Notificacao;
 
 @PageTitle("Informações de Usuário")
@@ -45,14 +47,14 @@ import br.com.projeta.gestor.views.componentes.Notificacao;
 public class UsuarioFormView extends Composite<VerticalLayout> {
 
     TextField textFieldNome;
-    TextField textFieldEmail;
+    EmailField textFieldEmail;
     TextField fieldCpf;
     TextField fieldCelular;
     TextField fieldTelefone;
     DatePicker datePickerNascimento;
-    MultiSelectComboBox<SampleItem> selectPermissoes;
-    ComboBox<SampleItem> selectEspecialidade;
-    ComboBox<SampleItem> selectPerfils;
+    MultiSelectComboBox<ItemCombo> selectPermissoes;
+    ComboBox<ItemCombo> selectEspecialidade;
+    ComboBox<ItemCombo> selectPerfils;
     Button buttonSave;
     Button buttonCancel;
     UserService usuarioService;
@@ -80,19 +82,19 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
             textFieldNome.setWidth("749px");
             formLayout2Col.add(textFieldNome);
 
-            textFieldEmail = new TextField("E-mail");
+            textFieldEmail =  ComponentesComum.createFieldEmail("E-mail");
             textFieldEmail.setWidth("502px");
             formLayout2Col.add(textFieldEmail);
 
-            fieldCpf = new TextField("CPF");
+            fieldCpf = ComponentesComum.createFieldCPF();
             fieldCpf.setWidth("218px");
             formLayout2Col.add(fieldCpf);
 
-            fieldCelular = new TextField("Celular");
+            fieldCelular = ComponentesComum.createFileldTelefone("Celular");
             fieldCelular.setWidth("360px");
             formLayout2Col.add(fieldCelular);
 
-            fieldTelefone = new TextField("Telefone");
+            fieldTelefone = ComponentesComum.createFileldTelefone("Telefone");
             fieldTelefone.setWidth("360px");
             formLayout2Col.add(fieldTelefone);
 
@@ -151,18 +153,19 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
                 readOnly(false);
 
                 buttonSave.addClickListener(event -> {
+                    validarCamposFormulario();
                     UsuarioResquest usuarioRequest = UsuarioResquest.builder()
                             .nome(textFieldNome.getValue())
                             .cpf(fieldCpf.getValue())
                             .celular(fieldCelular.getValue())
                             .telefone(fieldTelefone.getValue())
-                            .perfil(Long.valueOf(selectPerfils.getValue().value()))
-                            .permissoes(selectPermissoes.getSelectedItems().stream().map(i -> Long.valueOf(i.value()))
+                            .perfil(Long.valueOf(selectPerfils.getValue().value))
+                            .permissoes(selectPermissoes.getSelectedItems().stream().map(i -> Long.valueOf(i.value))
                                     .toList())
                             .especialidade(Objects.isNull(selectEspecialidade.getValue())
-                                    || selectEspecialidade.getValue().value().equals("0")
+                                    || selectEspecialidade.getValue().value.equals("0")
                                             ? null
-                                            : Long.valueOf(selectEspecialidade.getValue().value()))
+                                            : Long.valueOf(selectEspecialidade.getValue().value))
                             .dataNacimento(datePickerNascimento.getValue())
                             .email(textFieldEmail.getValue())
                             .build();
@@ -171,64 +174,42 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
                 });
             }
 
-            setComboBoxEspecialidade(selectEspecialidade, dominios);
-            setComboPerfils(selectPerfils, dominios);
+            ComponentesComum.setComboBoxEspecialidade(selectEspecialidade, dominios);
+            ComponentesComum.setComboPerfils(selectPerfils, dominios);
 
-            selectPerfils.addValueChangeListener(event -> {
-                SampleItem selectedItem = event.getValue();
-                if (selectedItem != null && !selectedItem.value().equals("0")) {
-
-                    Optional<PerfilRequest> perfil = dominios.getPerfils().stream()
-                            .filter(p -> Objects.equals(p.getId(), Long.valueOf(selectedItem.value()))).findFirst();
-                    if (perfil.isPresent()) {
-                        setComboPermissoes(selectPermissoes, perfil.get());
-
-                    }
-                    selectPermissoes.setVisible(true);
-                } else {
-                    selectPermissoes.setVisible(false);
-                }
-                if (selectedItem != null && selectedItem.label.equals("MEDICO")) {
-                    selectEspecialidade.setVisible(true);
-                } else {
-                    selectEspecialidade.setVisible(false);
-                }
-
-            });
+            selectPerfils.addValueChangeListener(event -> 
+                validarComboEspecialidade(dominios, event)
+            );
             buttonCancel.addClickListener(buttonClick -> limparCampos());
         }
         VaadinSession.getCurrent().setErrorHandler(new ExceptionHandler());
     }
 
-    record SampleItem(String value, String label, Boolean disabled) {
+    private void validarCamposFormulario() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'validarCamposFormulario'");
     }
 
-    private void setComboPerfils(ComboBox<SampleItem> multiSelectComboBox, DominiosTelaUser dominios) {
-        List<SampleItem> sampleItems = new ArrayList<>();
-        sampleItems.add(new SampleItem("0", "Selecione as opções", Boolean.TRUE));
-        sampleItems.addAll(dominios.getPerfils().stream()
-                .map(s -> new SampleItem(s.getId().toString(), s.getDescricao(), false)).toList());
-        multiSelectComboBox.setItems(sampleItems);
-        multiSelectComboBox.setItemLabelGenerator(item -> (item).label());
-    }
+    private void validarComboEspecialidade(DominiosTelaUser dominios,
+            ComponentValueChangeEvent<ComboBox<ItemCombo>, ItemCombo> event) {
+        ItemCombo selectedItem = event.getValue();
+        if (selectedItem != null && !selectedItem.value.equals("0")) {
 
-    private void setComboPermissoes(MultiSelectComboBox<SampleItem> multiSelectComboBox, PerfilRequest perfil) {
-        List<SampleItem> sampleItems = new ArrayList<>();
-        sampleItems.addAll(perfil.getPermissoes().stream()
-                .map(s -> new SampleItem(s.getId().toString(), s.getDescricao(), true)).toList());
-        multiSelectComboBox.setItems(sampleItems);
-        multiSelectComboBox.setItemLabelGenerator(item -> (item).label());
-        sampleItems.forEach(multiSelectComboBox::select);
-        multiSelectComboBox.setReadOnly(true);
-    }
+            Optional<PerfilRequest> perfil = dominios.getPerfils().stream()
+                    .filter(p -> Objects.equals(p.getId(), Long.valueOf(selectedItem.value))).findFirst();
+            if (perfil.isPresent()) {
+                ComponentesComum.setComboPermissoes(selectPermissoes, perfil.get());
 
-    private void setComboBoxEspecialidade(ComboBox<SampleItem> comboBox, DominiosTelaUser dominios) {
-        List<SampleItem> sampleItems = new ArrayList<>();
-        sampleItems.add(new SampleItem("0", "Selecione uma opção", Boolean.TRUE));
-        sampleItems.addAll(dominios.getEspecialidades().stream()
-                .map(e -> new SampleItem(e.getId().toString(), e.getDescricao(), false)).toList());
-        comboBox.setItems(sampleItems);
-        comboBox.setItemLabelGenerator(item -> (item).label());
+            }
+            selectPermissoes.setVisible(true);
+        } else {
+            selectPermissoes.setVisible(false);
+        }
+        if (selectedItem != null && selectedItem.label.equals("MEDICO")) {
+            selectEspecialidade.setVisible(true);
+        } else {
+            selectEspecialidade.setVisible(false);
+        }
     }
 
     private void limparCampos() {

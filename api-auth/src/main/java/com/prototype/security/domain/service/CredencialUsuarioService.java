@@ -95,4 +95,10 @@ public class CredencialUsuarioService {
             .map(p -> new SampleItemRequest(p.getId(), p.getTipoPermisao().getDescricao())).toList())
         .build();
   }
+
+  public void resetPassword(Long idCredencial) {
+    CredencialUsuario credencial = findById(idCredencial);
+    credencial.setPassword(passwordEncoder.encode(credencial.getCpf()));
+    repository.save(credencial);
+  }
 }

@@ -296,3 +296,13 @@
 2024-04-01T19:29:36.058-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2024-04-01T19:34:36.059-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2024-04-01T19:39:36.072-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T19:44:36.088-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T19:49:36.090-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T19:54:36.094-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T19:59:36.109-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T20:04:36.116-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T20:09:36.121-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T20:14:36.137-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T20:19:36.151-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T20:24:36.166-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-01T20:29:36.173-03:00  INFO 20324 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
