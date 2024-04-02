@@ -21,6 +21,10 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.binder.ValidationResult;
+import com.vaadin.flow.data.binder.Validator;
+import com.vaadin.flow.data.binder.ValueContext;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinSession;
@@ -30,9 +34,11 @@ import br.com.projeta.gestor.config.ExceptionHandler;
 import br.com.projeta.gestor.data.dto.DominiosTelaUser;
 import br.com.projeta.gestor.data.dto.PerfilRequest;
 import br.com.projeta.gestor.data.dto.UsuarioResquest;
+import br.com.projeta.gestor.data.enuns.TipoNotificacaoEnum;
 import br.com.projeta.gestor.services.AuthService;
 import br.com.projeta.gestor.services.DominiosService;
 import br.com.projeta.gestor.services.UserService;
+import br.com.projeta.gestor.util.ItemComboConverter;
 import br.com.projeta.gestor.util.Redirect;
 import br.com.projeta.gestor.util.RoleCredential;
 import br.com.projeta.gestor.views.MainLayout;
@@ -42,11 +48,11 @@ import br.com.projeta.gestor.views.componentes.Notificacao;
 
 @PageTitle("Informações de Usuário")
 @Route(value = "projeta-gestor/person-form", layout = MainLayout.class)
-@RoleCredential({"ADMIN", "ROOT" })
+@RoleCredential({ "ADMIN", "ROOT" })
 @Uses(Icon.class)
 public class UsuarioFormView extends Composite<VerticalLayout> {
 
-    TextField textFieldNome;
+    TextField fieldNome;
     EmailField textFieldEmail;
     TextField fieldCpf;
     TextField fieldCelular;
@@ -60,6 +66,7 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
     UserService usuarioService;
     Boolean permissaoCriacao = false;
     Boolean permissaoLeitura = false;
+    Binder<UsuarioResquest> binder = null;
 
     public UsuarioFormView(DominiosService dominiosService, UserService usuarioService, AuthService authService) {
 
@@ -78,11 +85,11 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
         HorizontalLayout layoutRow = new HorizontalLayout();
 
         if (permissaoLeitura) {
-            textFieldNome = new TextField("Nome");
-            textFieldNome.setWidth("749px");
-            formLayout2Col.add(textFieldNome);
+            fieldNome = new TextField("Nome");
+            fieldNome.setWidth("749px");
+            formLayout2Col.add(fieldNome);
 
-            textFieldEmail =  ComponentesComum.createFieldEmail("E-mail");
+            textFieldEmail = ComponentesComum.createFieldEmail("E-mail");
             textFieldEmail.setWidth("502px");
             formLayout2Col.add(textFieldEmail);
 
@@ -153,13 +160,14 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
                 readOnly(false);
 
                 buttonSave.addClickListener(event -> {
-                    validarCamposFormulario();
                     UsuarioResquest usuarioRequest = UsuarioResquest.builder()
-                            .nome(textFieldNome.getValue())
+                            .nome(fieldNome.getValue())
                             .cpf(fieldCpf.getValue())
                             .celular(fieldCelular.getValue())
                             .telefone(fieldTelefone.getValue())
-                            .perfil(Long.valueOf(selectPerfils.getValue().value))
+                            .perfil(Objects.nonNull(selectPerfils.getValue())
+                                    ? Long.valueOf(selectPerfils.getValue().value)
+                                    : null)
                             .permissoes(selectPermissoes.getSelectedItems().stream().map(i -> Long.valueOf(i.value))
                                     .toList())
                             .especialidade(Objects.isNull(selectEspecialidade.getValue())
@@ -170,24 +178,41 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
                             .email(textFieldEmail.getValue())
                             .build();
 
-                    submeterFormulario(usuarioRequest);
+                    boolean camposValidos = validarCamposFormulario(usuarioRequest);
+
+                    if (Boolean.TRUE.equals(camposValidos)) {
+                        submeterFormulario(usuarioRequest);
+                    }
+
                 });
             }
 
             ComponentesComum.setComboBoxEspecialidade(selectEspecialidade, dominios);
             ComponentesComum.setComboPerfils(selectPerfils, dominios);
 
-            selectPerfils.addValueChangeListener(event -> 
-                validarComboEspecialidade(dominios, event)
-            );
+            selectPerfils.addValueChangeListener(event -> validarComboEspecialidade(dominios, event));
             buttonCancel.addClickListener(buttonClick -> limparCampos());
         }
         VaadinSession.getCurrent().setErrorHandler(new ExceptionHandler());
     }
 
-    private void validarCamposFormulario() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'validarCamposFormulario'");
+    private boolean validarCamposFormulario(UsuarioResquest usuario) {
+
+        Binder<UsuarioResquest> binder = new Binder<>(UsuarioResquest.class);
+        binder.forField(fieldNome)
+                .asRequired("Por favor, informe o nome do usuário.")
+                .bind(UsuarioResquest::getNome, UsuarioResquest::setNome);
+        binder.forField(textFieldEmail)
+                .asRequired("Por favor, informe um e-mail.")
+                .bind(UsuarioResquest::getEmail, UsuarioResquest::setEmail);
+        binder.forField(fieldCpf).asRequired("O CPF é obrigatório.")
+                .bind(UsuarioResquest::getCpf, UsuarioResquest::setCpf);
+        binder.forField(selectPerfils)
+                .asRequired("Por favor, selecione um perfil")
+                .withConverter(new ItemComboConverter())
+                .bind(UsuarioResquest::getPerfil, UsuarioResquest::setPerfil);    
+
+        return binder.writeBeanIfValid(usuario);
     }
 
     private void validarComboEspecialidade(DominiosTelaUser dominios,
@@ -213,7 +238,7 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
     }
 
     private void limparCampos() {
-        this.textFieldNome.clear();
+        this.fieldNome.clear();
         this.textFieldEmail.clear();
         this.fieldCpf.clear();
         this.fieldCelular.clear();
@@ -231,7 +256,7 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
     }
 
     private void readOnly(Boolean status) {
-        textFieldNome.setReadOnly(status);
+        fieldNome.setReadOnly(status);
         textFieldEmail.setReadOnly(status);
         fieldCpf.setReadOnly(status);
         fieldCelular.setReadOnly(status);
