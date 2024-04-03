@@ -2,6 +2,7 @@ package com.prototype.security.api.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,7 @@ import com.prototype.security.api.dto.request.AuthenticationRequest;
 import com.prototype.security.api.dto.request.RegisterRequest;
 import com.prototype.security.api.dto.response.CredencialUsuarioResponse;
 import com.prototype.security.api.dto.response.RoleRespose;
+import com.prototype.security.domain.exception.NegocioException;
 import com.prototype.security.domain.service.AuthenticationService;
 import com.prototype.security.domain.service.LogoutService;
 
@@ -74,6 +76,18 @@ public class AuthenticationController {
 	@PutMapping("/reset-password")
 	public ResponseEntity<Void> resetPassword(@RequestParam(required = true) Long idCredencial){
 			service.resetPassword(idCredencial);
+		return ResponseEntity.ok().build();
+	}
+
+	@PostMapping("/recuperar-senha")
+	public ResponseEntity<Void> recuperarPassword(@RequestBody String email){
+
+		if(Objects.isNull(email) || email.isBlank()){
+			throw new NegocioException("Precisa ser um email válido.");
+		}
+		// TODO precisa implementar	
+		// service.resetPassword(idCredencial);
+			System.out.println(email);
 		return ResponseEntity.ok().build();
 	}
 }

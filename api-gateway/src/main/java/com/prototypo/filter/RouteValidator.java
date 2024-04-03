@@ -19,7 +19,8 @@ public class RouteValidator {
             "/projeta",
             "/projeta/about",
             "/projeta/services",
-            "/projeta/login"
+            "/projeta/login",
+            "/recuperar-senha"
     );
 
     public Predicate<ServerHttpRequest> isSecured =

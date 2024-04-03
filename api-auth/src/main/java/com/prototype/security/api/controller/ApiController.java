@@ -17,9 +17,16 @@ public class ApiController {
   private String urlRedirect = "";
 
   @GetMapping("login")
-  public String about(Model model) {
+  public String login(Model model) {
     model.addAttribute("nomeSistema", nomeSistema);
     model.addAttribute("urlRedirect", urlRedirect);
     return "index";
+  }
+
+  @GetMapping("esqueci-senha")
+  public String esqueciSenha(Model model) {
+    model.addAttribute("nomeSistema", nomeSistema);
+    model.addAttribute("urlRedirect", urlRedirect);
+    return "esqueci-senha";
   }
 }
