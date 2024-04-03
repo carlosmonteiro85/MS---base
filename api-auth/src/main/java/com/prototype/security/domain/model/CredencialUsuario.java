@@ -52,6 +52,22 @@ public class CredencialUsuario implements UserDetails {
 	private String password;
 
 	@Builder.Default
+	@Column(name = "qt_password_error")
+	private Integer qtPasswordError = 0;
+	
+	@Builder.Default
+	@Column(name = "blocked")
+	private Boolean isBlocked = Boolean.FALSE; 
+
+	@Builder.Default
+	@Column(name = "fist_accesse")
+	private Boolean fistAccesse = Boolean.TRUE; 
+
+	@Builder.Default
+	@Column(name = "ativo")
+	private Boolean ativo = Boolean.TRUE; 
+
+	@Builder.Default
 	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})@JoinTable(name = "credencial_perfil", 
     joinColumns = @JoinColumn(name = "id_credencial"), inverseJoinColumns = @JoinColumn(name = "id_perfil"))
   private Set<Perfil> perfils = new HashSet<>();
@@ -97,7 +113,7 @@ public class CredencialUsuario implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return true;
+		return !this.isBlocked;
 	}
 
 	@Override
@@ -107,7 +123,7 @@ public class CredencialUsuario implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		return true;
+		return this.ativo;
 	}
 
 	public CredencialUsuario(Long id){

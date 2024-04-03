@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -18,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -34,6 +34,7 @@ import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.fasterxml.jackson.databind.exc.PropertyBindingException;
 import com.prototype.security.domain.exception.EmailException;
 import com.prototype.security.domain.exception.NegocioException;
+import com.prototype.security.domain.exception.ObjectNotFoundException;
 import com.prototype.security.domain.exception.TokenExceprion;
 import com.prototype.security.domain.exception.UsuarioNaoPermitidoException;
 import com.prototype.security.domain.exception.ValidacaoException;
@@ -81,6 +82,14 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
         HttpStatus status = HttpStatus.FORBIDDEN;
         ProblemType problemType = ProblemType.NAO_PERMITIDO;
         String detail = ex.getMessage();
+
+        log.info("#####################");
+        log.info("#####################");
+        log.info("#####################");
+        log.info("#####################");
+        log.info("#####################");
+
+
         Problem problem = createProblemBuilder(status, problemType, detail)
                 .userMessage(detail)
                 .build();
@@ -137,6 +146,18 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
         HttpStatus status = HttpStatus.BAD_REQUEST;
         ProblemType problemType = ProblemType.ERRO_NEGOCIO;
         String detail = ex.getMessage();
+        Problem problem = createProblemBuilder(status, problemType, detail)
+                .userMessage(detail)
+                .build();
+
+        return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
+    }
+
+    @ExceptionHandler(LockedException.class)
+    public ResponseEntity<Object> handleImportacao(LockedException ex, WebRequest request) {
+        HttpStatus status = HttpStatus.UNAUTHORIZED;
+        ProblemType problemType = ProblemType.ERRO_NEGOCIO;
+        String detail = "Suas credenciais de acesso foram bloqueadas. Por favor, entre em contato com um administrador para obter assistência.";
         Problem problem = createProblemBuilder(status, problemType, detail)
                 .userMessage(detail)
                 .build();

@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prototype.security.api.dto.request.AuthenticationRequest;
 import com.prototype.security.api.dto.request.RegisterRequest;
@@ -18,9 +18,9 @@ import com.prototype.security.domain.exception.TokenExceprion;
 import com.prototype.security.domain.model.CredencialUsuario;
 import com.prototype.security.domain.model.Token;
 import com.prototype.security.domain.model.enuns.TokenType;
+import com.prototype.security.domain.model.util.AppConstants;
 import com.prototype.security.domain.repository.CredencialUsuarioRepository;
 import com.prototype.security.domain.repository.TokenRepository;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
@@ -56,15 +56,36 @@ public class AuthenticationService {
 	}
 
 	public CredencialUsuarioResponse authenticate(AuthenticationRequest request) {
-		authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(request.getLogin(), request.getPassword()));
 		CredencialUsuario credencial = credencialUsuarioService.buscarUsuarioPeloLogin(request.getLogin());
-		var jwtToken = jwtService.generateToken(credencial);
-		var refreshToken = jwtService.generateRefreshToken(credencial);
-		revogarTokensUsuario(credencial);
-		salvarToken(credencial, jwtToken);
-		return CredencialUsuarioResponse.builder().id(credencial.getId()).accessToken(jwtToken)
-				.refreshToken(refreshToken).build();
+
+		try {
+			authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(request.getLogin(), request.getPassword()));
+
+			var jwtToken = jwtService.generateToken(credencial);
+			var refreshToken = jwtService.generateRefreshToken(credencial);
+			revogarTokensUsuario(credencial);
+			credencialUsuarioService.setErrorTentativaPassword(credencial, 0);
+			salvarToken(credencial, jwtToken);
+			return CredencialUsuarioResponse.builder().id(credencial.getId()).accessToken(jwtToken)
+					.refreshToken(refreshToken).build();
+
+		} catch (BadCredentialsException e) {
+
+			String menssagemError = "";
+			Integer qtPasswordError = credencial.getQtPasswordError();
+			qtPasswordError = qtPasswordError + 1;
+
+			if (qtPasswordError > AppConstants.DEFAULT_TENTATIVAS) {
+				credencial.setIsBlocked(Boolean.TRUE);
+				menssagemError = "Acesso bloqueado, entre em contato com o administrador.";
+			}else{
+				menssagemError = "Senha incorreta. Restam " +  (AppConstants.DEFAULT_TENTATIVAS - qtPasswordError)
+						+ " tentativas antes do bloqueio da conta.";
+			} 
+			credencialUsuarioService.setErrorTentativaPassword(credencial, qtPasswordError);
+			throw new BadCredentialsException(menssagemError);
+		}
 	}
 
 	private void salvarToken(CredencialUsuario user, String jwtToken) {
@@ -132,7 +153,7 @@ public class AuthenticationService {
 		return jwtService.findRoles(token);
 	}
 
-  public void resetPassword(Long idCredencial) {
+	public void resetPassword(Long idCredencial) {
 		credencialUsuarioService.resetPassword(idCredencial);
-  }
+	}
 }

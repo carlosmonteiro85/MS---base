@@ -8,4 +8,5 @@ public class AppConstants {
   public static final String DEFAULT_NUMERO_PAGINA = "0";
   public static final String DEFAULT_TOTAL_PAGINA = "20";
   public static final String DEFAULT_SORT_POR = "id";
+  public static final Integer DEFAULT_TENTATIVAS = 5;
 }

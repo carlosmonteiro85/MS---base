@@ -32,5 +32,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     return credencial.map(CustomUserDetails::new)
         .orElseThrow(() -> new UsernameNotFoundException("Usuario com o login " + username + " não encontrado"));
   }
-
 }

@@ -47,7 +47,7 @@
             </a>
           </div>
           <div class="w-full text-center">
-            <a href="#" class="txt3">
+            <a href="#" class="txt3"> 
 
             </a>
           </div>
@@ -58,8 +58,6 @@
       </div>
     </div>
   </div>
-
-
 
   <div id="dropDownSelect1"></div>
   <script src="css/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -96,25 +94,69 @@
         .then(response => {
           if (response.status === 404) {
             return response.json().then(data => {
-              alert(data.detail);
+                Swal.fire({
+                icon: 'info', 
+                // title: 'Dados não encontrados',
+                text: data.detail,
+                customClass: {
+                  container: 'my-swal-container',
+                  popup: 'my-swal-popup',
+                  title: 'my-swal-title',
+                  content: 'my-swal-content',
+                  confirmButton: 'my-swal-confirm-button'
+                }
+              });
             });
           } else if (response.ok) {
             return response.json();
-          } else {
-            console.error('Erro ao enviar requisição. Status: ' + response.status);
+          } else if (response.status === 500 || response.status === 401) {
+            return response.json().then(data => {
+                Swal.fire({
+                icon: 'error', 
+                // title: 'Dados não encontrados',
+                text: data.detail,
+                customClass: {
+                  container: 'my-swal-container',
+                  popup: 'my-swal-popup',
+                  title: 'my-swal-title',
+                  content: 'my-swal-content',
+                  confirmButton: 'my-swal-confirm-button'
+                }
+              });
+            });
+          } else if (response.status === 403) {
+            return response.json().then(data => {
+                Swal.fire({
+                icon: 'warning', 
+                // title: 'Dados não encontrados',
+                text: data.detail,
+                customClass: {
+                  container: 'my-swal-container',
+                  popup: 'my-swal-popup',
+                  title: 'my-swal-title',
+                  content: 'my-swal-content',
+                  confirmButton: 'my-swal-confirm-button'
+                }
+              });
+            });
+          }else {
+            // console.log(response.json());
+            // console.error('Erro ao enviar requisição. Status: ' + response.status);
           }
         })
         .then(data => {
           document.cookie = `token=${data.accessToken}; path=/`;
           const redirectUrl = document.getElementById('redirectInput').value;
-          console.log(document.cookie)
+          // console.log(document.cookie)
           window.location.href = redirectUrl;
         })
         .catch(error => {
-          console.error('Erro ao enviar requisição:', error);
+          console.log(error);
+          // console.error('Erro ao enviar requisição:', error);
         });
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

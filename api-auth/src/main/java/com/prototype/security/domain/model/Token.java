@@ -1,5 +1,7 @@
 package com.prototype.security.domain.model;
 
+import java.util.UUID;
+
 import com.prototype.security.domain.model.enuns.TokenType;
 
 import jakarta.persistence.Column;
@@ -8,7 +10,6 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -28,7 +29,7 @@ public class Token {
 
   @Id
   @GeneratedValue
-  private Long id;
+  private UUID id;
 
 	@Column(unique = true, length = 800)
 	public String token;

@@ -57,7 +57,7 @@ public class CredencialUsuarioService {
 
   public CredencialUsuario buscarUsuarioPeloLogin(String login) {
     return findByLogin(login)
-        .orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um usuário com este login"));
+        .orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado com estas credenciais de login."));
   }
 
   public Optional<CredencialUsuario> findByLogin(String login) {
@@ -99,6 +99,11 @@ public class CredencialUsuarioService {
   public void resetPassword(Long idCredencial) {
     CredencialUsuario credencial = findById(idCredencial);
     credencial.setPassword(passwordEncoder.encode(credencial.getCpf()));
+    repository.save(credencial);
+  }
+  
+  public void setErrorTentativaPassword(CredencialUsuario credencial, int tentativas) {
+    credencial.setQtPasswordError(tentativas);
     repository.save(credencial);
   }
 }

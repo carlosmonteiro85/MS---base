@@ -28,7 +28,7 @@ public class ApplicationConfig {
   @Bean
   public UserDetailsService userDetailsService() {
     return username -> service.findByLogin(username)
-        .orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um usuário com este login"));
+        .orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado com estas credenciais de login."));
   }
 
   @Bean
