@@ -1,9 +1,31 @@
 package com.prototype.security;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-// @Slf4j
+import com.prototype.security.api.dto.UsuarioResquest;
+import com.prototype.security.api.dto.request.AuthenticationRequest;
+import com.prototype.security.api.dto.response.CredencialUsuarioResponse;
+import com.prototype.security.domain.model.Especialidades;
+import com.prototype.security.domain.model.Perfil;
+import com.prototype.security.domain.model.Permissao;
+import com.prototype.security.domain.model.enuns.TipoPermissaoEnum;
+import com.prototype.security.domain.repository.EspecialidadeRepository;
+import com.prototype.security.domain.repository.PerfilRepository;
+import com.prototype.security.domain.service.AuthenticationService;
+import com.prototype.security.domain.service.UsuarioService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+// @EnableJpaAuditing
+// @EnableEnversRepositories
 @SpringBootApplication
 public class SecurityApplication {
 
@@ -58,6 +80,8 @@ public class SecurityApplication {
 	// 					.celular("999999999")
 	// 					.telefone("8888888888")
 	// 					.perfil(perfilRoot.getId())
+	// 					// .permissoes(perfilRoot.getPermisoes().stream().map(p -> p.getId()).toList())
+	// 					.avatar("avatar/avatar1.png")
 	// 					.dataNacimento(LocalDate.of(1985, 9 , 27))
 	// 					.email("admin@mail.com")
 	// 				.build();

@@ -42,8 +42,8 @@ public class UserService {
   }
 
   public Notificacao saveUser(UsuarioResquest usuario) {
-    String menssagem = "";
-    TipoNotificacaoEnum tipo = null;
+    String menssagem = "Usuário inserido com sucesso.";
+    TipoNotificacaoEnum tipo = TipoNotificacaoEnum.SUCESSO;
     try {
       ResponseEntity<Void> responseEntity = dominiosFeing.saveUser(usuario);
 

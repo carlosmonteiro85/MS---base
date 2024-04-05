@@ -101,6 +101,14 @@ public class UsuarioService {
     usuario.setTelefone(request.getTelefone());
     usuario.setDataNacimento(request.getDataNacimento());
     usuario.setAvatar(request.getAvatar());
+
+    credencialService.updateCredencial(usuario.getCredencial(), request);
+
+    if(usuario.getCredencial().getPerfils().stream().anyMatch(p -> p.getDescricao().equals("MEDICO"))){
+      usuario.setEspecialidade(especialidadeService.findById(request.getEspecialidade()));
+    }else{
+      usuario.setEspecialidade(null);
+    }
     usuarioRepository.save(usuario);
   }
 

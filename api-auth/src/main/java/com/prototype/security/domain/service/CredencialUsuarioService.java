@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.prototype.security.api.dto.UsuarioResquest;
 import com.prototype.security.api.dto.request.RegisterRequest;
 import com.prototype.security.api.dto.response.CredencialResponse;
 import com.prototype.security.api.dto.response.PerfilResponse;
@@ -72,7 +73,6 @@ public class CredencialUsuarioService {
     }
 
     return credencial;
-
   }
 
   public CredencialResponse bindCredencialRespose(CredencialUsuario credencial) {
@@ -101,9 +101,29 @@ public class CredencialUsuarioService {
     credencial.setPassword(passwordEncoder.encode(credencial.getCpf()));
     repository.save(credencial);
   }
-  
+
   public void setErrorTentativaPassword(CredencialUsuario credencial, int tentativas) {
     credencial.setQtPasswordError(tentativas);
     repository.save(credencial);
+  }
+
+  public void updateCredencial(CredencialUsuario credencial, UsuarioResquest request) {
+    credencial.setCpf(request.getCpf());
+    credencial.setEmail(request.getEmail());
+    updatePerfils(credencial, request);
+  }
+
+  public void updatePerfils(CredencialUsuario credencial, UsuarioResquest request) {
+    boolean contemPerfil = credencial.getPerfils().stream().map(Perfil::getId).toList().contains(request.getPerfil());
+    if (Boolean.FALSE.equals(contemPerfil)) {
+      credencial.getPerfils().clear();
+      Perfil novoPerfil = findPerfilById(request.getPerfil());
+      credencial.getPerfils().add(novoPerfil);
+    }
+  }
+
+  public Perfil findPerfilById(Long idPerfil) {
+    return perfilRepository.findById(idPerfil)
+        .orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um perfil com este id: " + idPerfil));
   }
 }

@@ -252,7 +252,8 @@ public class UsuarioFormView extends Composite<VerticalLayout> {
     private void submeterFormulario(UsuarioResquest usuarioRequest) {
         Notificacao notificacao = usuarioService.saveUser(usuarioRequest);
         notificacao.showNotification();
-        Redirect.criarRedirect(UsuarioFormView.class);
+        limparCampos();
+        // Redirect.criarRedirect(UsuarioFormView.class);
     }
 
     private void readOnly(Boolean status) {

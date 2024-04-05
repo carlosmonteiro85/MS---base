@@ -49,6 +49,7 @@ public class SecurityConfiguration {
                                 "/esqueci-senha/**",
                                 "/auth/recuperar-senha",
                                 "/projeta/login/**",
+                                "/dominios/teste/**",
                                 "/css/**",
                                 "/fonts/**",
                                 "/images/**",

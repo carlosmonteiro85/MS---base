@@ -7,12 +7,17 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +32,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Audited
+@AuditTable("auditoria_credenciais")
+@EntityListeners(AuditingEntityListener.class)
 @Data
 @Builder
 @NoArgsConstructor
@@ -67,11 +75,13 @@ public class CredencialUsuario implements UserDetails {
 	@Column(name = "ativo")
 	private Boolean ativo = Boolean.TRUE; 
 
+	@NotAudited
 	@Builder.Default
 	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})@JoinTable(name = "credencial_perfil", 
     joinColumns = @JoinColumn(name = "id_credencial"), inverseJoinColumns = @JoinColumn(name = "id_perfil"))
   private Set<Perfil> perfils = new HashSet<>();
 
+	@NotAudited
 	@OneToMany(mappedBy = "credencial")
 	private List<Token> tokens;
 

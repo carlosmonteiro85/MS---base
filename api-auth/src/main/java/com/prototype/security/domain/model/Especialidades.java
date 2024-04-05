@@ -1,6 +1,11 @@
 package com.prototype.security.domain.model;
 
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,6 +20,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
+@Audited
+@AuditTable("auditoria_especialidade")
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "especialidades")
 public class Especialidades {
 
@@ -23,4 +31,8 @@ public class Especialidades {
   private Long id;
 
   private String descricao;
+
+  public Especialidades(Long id){
+    this.id = id;
+  }
 }
