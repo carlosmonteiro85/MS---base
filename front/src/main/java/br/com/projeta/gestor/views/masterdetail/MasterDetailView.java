@@ -48,6 +48,7 @@ import br.com.projeta.gestor.util.RoleCredential;
 import br.com.projeta.gestor.views.MainLayout;
 import br.com.projeta.gestor.views.componentes.ComponentesComum;
 import br.com.projeta.gestor.views.componentes.ConfirmDialog;
+import br.com.projeta.gestor.views.componentes.HistoricoAlteracaoDialog;
 import br.com.projeta.gestor.views.componentes.ItemCombo;
 import br.com.projeta.gestor.views.componentes.Notificacao;
 
@@ -72,6 +73,7 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
     private final Button save = new Button("Save");
     private final Button deletar = new Button("Deletar");
     private final Button reseteSenha = new Button("Resete senha");
+    private final Button historicoAlteracao = new Button("Historico de alteração");
     Boolean permissaoAtualizar = false;
     Boolean permissaoLeitura = false;
 
@@ -135,6 +137,10 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
                         }
                     });
             confirmDialog.open();
+        });
+        historicoAlteracao.addClickListener(e -> {
+            HistoricoAlteracaoDialog historico = new HistoricoAlteracaoDialog(usuarioService, this.usuario.getId());
+            historico.open();
         });
         VaadinSession.getCurrent().setErrorHandler(new ExceptionHandler());
     }
@@ -298,7 +304,8 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
             save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
             deletar.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
             reseteSenha.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-            buttonLayout.add(save, cancel, deletar, reseteSenha);
+            historicoAlteracao.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            buttonLayout.add(save, cancel, deletar, reseteSenha, historicoAlteracao);
             editorLayoutDiv.add(buttonLayout);
         }
     }

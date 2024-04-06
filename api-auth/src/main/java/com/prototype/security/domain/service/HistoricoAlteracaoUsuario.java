@@ -74,8 +74,7 @@ public class HistoricoAlteracaoUsuario {
         .createNativeQuery(queryString)
         .setParameter("id", id)
         .setParameter("rev", rev);
-    List<Object[]> resultList = query.getResultList();
-
+    List<Object[]> resultList =  query.getResultList();
     return resultList.stream().map(this::bindUserForObject).findFirst().orElse(null);
   }
 

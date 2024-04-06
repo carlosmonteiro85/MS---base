@@ -1,6 +1,7 @@
 package com.prototype.security.api.controller;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,9 +21,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.prototype.security.api.dto.UsuarioResquest;
 import com.prototype.security.api.dto.request.FiltrosRequest;
 import com.prototype.security.api.dto.request.UserProfile;
+import com.prototype.security.api.dto.response.HistoricoOutputDTO;
 import com.prototype.security.api.dto.response.UsuarioResponse;
 import com.prototype.security.api.dto.response.UsuarioResponseFilter;
 import com.prototype.security.domain.model.Usuario;
+import com.prototype.security.domain.service.HistoricoAlteracaoUsuario;
 import com.prototype.security.domain.service.UsuarioService;
 
 import jakarta.validation.Valid;
@@ -34,6 +37,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
   private final UsuarioService usuarioService;
+  private final HistoricoAlteracaoUsuario historico;
 
   @GetMapping()
   public ResponseEntity<Page<UsuarioResponse>> buscaComFiltros(
@@ -91,5 +95,11 @@ public class UserController {
       @RequestBody @Valid FiltrosRequest filtros) {
     PageRequest pageRequest = PageRequest.of(page, pageSize, Sort.by(sortDirection, sortField));
     return ResponseEntity.ok().body(usuarioService.findAllFilter(pageRequest, filtros));
+  }
+
+  @GetMapping("/historico/{id}")
+  public ResponseEntity<List<HistoricoOutputDTO>> getHistorico(
+    @PathVariable(name = "id", required = true) Long id) {
+    return ResponseEntity.ok(historico.buscarHistorico(id));
   }
 }

@@ -20,10 +20,9 @@ import br.com.projeta.gestor.data.dto.UsuarioResponse;
 import br.com.projeta.gestor.data.dto.UsuarioResponseFilter;
 import br.com.projeta.gestor.data.dto.UsuarioResquest;
 import br.com.projeta.gestor.data.enuns.TipoNotificacaoEnum;
-import br.com.projeta.gestor.data.exception.NegocioEsception;
 import br.com.projeta.gestor.infra.AuthFeing;
+import br.com.projeta.gestor.views.componentes.HistoricoAlteracaoDTO;
 import br.com.projeta.gestor.views.componentes.Notificacao;
-import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -130,5 +129,14 @@ public class UserService {
     } catch (Exception e) {
       exceptionHandler.error(new ErrorEvent(e));
     }
+  }
+
+  public List<HistoricoAlteracaoDTO> getHistoricoAlteracoes(Long isUduario) {
+    try {
+      return dominiosFeing.getHistorico(isUduario).getBody();
+    } catch (Exception e) {
+      exceptionHandler.error(new ErrorEvent(e));
+    }
+    return null;
   }
 }

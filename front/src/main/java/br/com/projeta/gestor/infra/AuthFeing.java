@@ -23,6 +23,7 @@ import br.com.projeta.gestor.data.dto.UserProfile;
 import br.com.projeta.gestor.data.dto.UsuarioResponse;
 import br.com.projeta.gestor.data.dto.UsuarioResponseFilter;
 import br.com.projeta.gestor.data.dto.UsuarioResquest;
+import br.com.projeta.gestor.views.componentes.HistoricoAlteracaoDTO;
 import jakarta.validation.Valid;
 
 @FeignClient(name = "api-auth", url = "${feign.client.url.api-auth}")
@@ -32,13 +33,13 @@ public interface AuthFeing {
   public ResponseEntity<JwtTokenRequest> auth(@RequestBody AuthRequest authRequest);
 
   @GetMapping("/auth/logout")
-	public ResponseEntity<Void> logOut();
+  public ResponseEntity<Void> logOut();
 
   @GetMapping("/auth/token")
   public ResponseEntity<JwtTokenRequest> obterToken();
 
   @PutMapping("/auth/reset-password")
-	public ResponseEntity<Void> resetPassword(@RequestParam(required = true) Long idCredencial);
+  public ResponseEntity<Void> resetPassword(@RequestParam(required = true) Long idCredencial);
 
   @GetMapping("/auth")
   public ResponseEntity<Void> validarToken(@RequestParam(required = true) String token);
@@ -76,6 +77,10 @@ public interface AuthFeing {
 
   @DeleteMapping("/users/{id}")
   public ResponseEntity<Void> delete(@PathVariable(name = "id", required = true) Long id);
+
+  @GetMapping("/users/historico/{id}")
+  public ResponseEntity<List<HistoricoAlteracaoDTO>> getHistorico(
+      @PathVariable(name = "id", required = true) Long id);
 
   @GetMapping("/dominios/form-user")
   public ResponseEntity<DominiosTelaUser> getDadosDominios();
