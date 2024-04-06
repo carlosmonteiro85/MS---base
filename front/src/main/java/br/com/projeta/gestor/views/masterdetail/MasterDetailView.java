@@ -17,6 +17,7 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
@@ -69,11 +70,11 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
     private Checkbox important;
     private MultiSelectComboBox<ItemCombo> permissoes;
     private Div editorLayoutDiv = new Div();
-    private final Button cancel = new Button("Cancel");
-    private final Button save = new Button("Save");
-    private final Button deletar = new Button("Deletar");
-    private final Button reseteSenha = new Button("Resete senha");
-    private final Button historicoAlteracao = new Button("Historico de alteração");
+    private final Button cancel = new Button();
+    private final Button save = new Button();
+    private final Button deletar = new Button();
+    private final Button reseteSenha = new Button();
+    private final Button historicoAlteracao = new Button();
     Boolean permissaoAtualizar = false;
     Boolean permissaoLeitura = false;
 
@@ -128,7 +129,7 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
                     });
             confirmDialog.open();
         });
-
+        
         reseteSenha.addClickListener(e -> {
             ConfirmDialog confirmDialog = new ConfirmDialog("Isso irá resetar a senha default do usuário, você tem certeza?",
                     confirmar -> {
@@ -138,6 +139,7 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
                     });
             confirmDialog.open();
         });
+
         historicoAlteracao.addClickListener(e -> {
             HistoricoAlteracaoDialog historico = new HistoricoAlteracaoDialog(usuarioService, this.usuario.getId());
             historico.open();
@@ -258,13 +260,14 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
     }
 
     private void createEditorLayout(SplitLayout splitLayout) {
+        editorLayoutDiv.setWidth("700px");
         editorLayoutDiv.setVisible(false);
         editorLayoutDiv.setClassName("editor-layout");
-
+        
         Div editorDiv = new Div();
         editorDiv.setClassName("editor");
         editorLayoutDiv.add(editorDiv);
-
+        
         FormLayout formLayout = new FormLayout();
         nome = new TextField("Nome");
         celular = new TextField("Celular");
@@ -277,9 +280,9 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
         email = new TextField("email");
         important = new Checkbox("Important");
         formLayout.add(nome, celular, telefone, perfil, permissoes, dataNascimento, especialidade2, email, important);
-
-        editorDiv.add(formLayout);
+        
         createButtonLayout(editorLayoutDiv);
+        editorDiv.add(formLayout);
 
         splitLayout.addToSecondary(editorLayoutDiv);
 
@@ -300,12 +303,33 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
         if (Boolean.TRUE.equals(permissaoAtualizar)) {
             HorizontalLayout buttonLayout = new HorizontalLayout();
             buttonLayout.setClassName("button-layout");
-            cancel.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-            save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-            deletar.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            
+            Image saveIconImage = new Image("icons/save.png", "update");
+            saveIconImage.setWidth("25px");
+            save.setIcon(saveIconImage);
+            save.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            
+            Image retoreIconImage = new Image("icons/restore.png", "restore pass");
+            retoreIconImage.setWidth("25px");
+            reseteSenha.setIcon(retoreIconImage);
             reseteSenha.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            
+            Image alteracaoIconImage = new Image("icons/alteracao.png", "alterações");
+            alteracaoIconImage.setWidth("25px");
+            historicoAlteracao.setIcon(alteracaoIconImage);
             historicoAlteracao.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-            buttonLayout.add(save, cancel, deletar, reseteSenha, historicoAlteracao);
+
+            Image deletarIconImage = new Image("icons/delete.png", "delete");
+            deletarIconImage.setWidth("25px");
+            deletar.setIcon(deletarIconImage);
+            deletar.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            
+            Image closeIconImage = new Image("icons/close.png", "close");
+            closeIconImage.setWidth("25px");
+            cancel.setIcon(closeIconImage);
+            cancel.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+            
+            buttonLayout.add(save, reseteSenha, historicoAlteracao, deletar, cancel);
             editorLayoutDiv.add(buttonLayout);
         }
     }
