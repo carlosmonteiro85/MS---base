@@ -1,254 +1,293 @@
-2024-04-05T11:23:59.883-03:00  INFO 3960 --- [projeta] [restartedMain] br.com.prototype.site.SiteApplication    : Starting SiteApplication using Java 17.0.7 with PID 3960 (C:\Users\carlos-monteiro\Documents\workspace\prototype\ms-base\MS---base\api-site\target\classes started by carlos-monteiro in C:\Users\carlos-monteiro\Documents\workspace\prototype\ms-base\MS---base)
-2024-04-05T11:23:59.890-03:00  INFO 3960 --- [projeta] [restartedMain] br.com.prototype.site.SiteApplication    : No active profile set, falling back to 1 default profile: "default"
-2024-04-05T11:23:59.956-03:00  INFO 3960 --- [projeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-04-05T11:23:59.957-03:00  INFO 3960 --- [projeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-04-05T11:24:00.787-03:00  INFO 3960 --- [projeta] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e815161b-a918-367e-81e7-64e0b325b443
-2024-04-05T11:24:00.834-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2024-04-05T11:24:00.840-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.842-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.851-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.854-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.855-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$468/0x00000008013095a0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.858-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.865-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.875-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.877-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.879-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.882-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.885-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.894-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.895-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.897-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.899-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:00.901-03:00  WARN 3960 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T11:24:01.405-03:00  INFO 3960 --- [projeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3001 (http)
-2024-04-05T11:24:01.418-03:00  INFO 3960 --- [projeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-04-05T11:24:01.418-03:00  INFO 3960 --- [projeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-04-05T11:24:01.484-03:00  INFO 3960 --- [projeta] [restartedMain] o.a.c.c.C.[.[localhost].[/projeta]       : Initializing Spring embedded WebApplicationContext
-2024-04-05T11:24:01.485-03:00  INFO 3960 --- [projeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1528 ms
-2024-04-05T11:24:01.602-03:00  INFO 3960 --- [projeta] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-04-05T11:24:02.074-03:00  WARN 3960 --- [projeta] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2024-04-05T11:24:02.192-03:00  INFO 3960 --- [projeta] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2024-04-05T11:24:02.315-03:00  WARN 3960 --- [projeta] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2024-04-05T11:24:02.341-03:00  INFO 3960 --- [projeta] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2024-04-05T11:24:02.425-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2024-04-05T11:24:02.431-03:00  INFO 3960 --- [projeta] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T11:24:02.456-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2024-04-05T11:24:02.457-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2024-04-05T11:24:02.457-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2024-04-05T11:24:02.457-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2024-04-05T11:24:02.458-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2024-04-05T11:24:02.458-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2024-04-05T11:24:02.458-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2024-04-05T11:24:02.852-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2024-04-05T11:24:02.854-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2024-04-05T11:24:02.856-03:00  INFO 3960 --- [projeta] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2024-04-05T11:24:02.861-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1712327042860 with initial instances count: 2
-2024-04-05T11:24:02.863-03:00  INFO 3960 --- [projeta] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application PROJETA with eureka with status UP
-2024-04-05T11:24:02.865-03:00  INFO 3960 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1712327042865, current=UP, previous=STARTING]
-2024-04-05T11:24:02.866-03:00  INFO 3960 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/NITRO-CAR-WIN:projeta:3001: registering service...
-2024-04-05T11:24:02.888-03:00  INFO 3960 --- [projeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3001 (http) with context path '/projeta'
-2024-04-05T11:24:02.890-03:00  INFO 3960 --- [projeta] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 3001
-2024-04-05T11:24:02.968-03:00  INFO 3960 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/NITRO-CAR-WIN:projeta:3001 - registration status: 204
-2024-04-05T11:24:02.977-03:00  INFO 3960 --- [projeta] [restartedMain] br.com.prototype.site.SiteApplication    : Started SiteApplication in 3.641 seconds (process running for 4.27)
-2024-04-05T11:29:02.463-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T11:34:02.465-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T11:39:02.467-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T11:44:02.478-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T11:49:02.486-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T11:54:02.501-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T11:59:02.517-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:04:02.521-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:09:02.527-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:14:02.528-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:19:02.535-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:24:02.542-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:29:02.550-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:34:02.565-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:39:02.578-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:44:02.582-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:49:02.597-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:54:02.613-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T12:59:02.621-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:04:02.628-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:09:02.637-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:14:02.638-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:19:02.640-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:24:02.644-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:29:02.647-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:34:02.664-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:39:02.667-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:44:02.681-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:49:02.687-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:54:02.699-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T13:59:02.708-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T14:04:02.722-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T14:09:02.727-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T14:14:02.736-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T14:19:02.739-03:00  INFO 3960 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T14:23:18.436-03:00  INFO 3960 --- [projeta] [http-nio-3001-exec-1] o.a.c.c.C.[.[localhost].[/projeta]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-04-05T14:23:18.437-03:00  INFO 3960 --- [projeta] [http-nio-3001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-04-05T14:23:18.439-03:00  INFO 3960 --- [projeta] [http-nio-3001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-04-05T14:46:03.789-03:00  INFO 23292 --- [projeta] [restartedMain] br.com.prototype.site.SiteApplication    : Starting SiteApplication using Java 17.0.7 with PID 23292 (C:\Users\carlos-monteiro\Documents\workspace\prototype\ms-base\MS---base\api-site\target\classes started by carlos-monteiro in C:\Users\carlos-monteiro\Documents\workspace\prototype\ms-base\MS---base)
-2024-04-05T14:46:03.791-03:00  INFO 23292 --- [projeta] [restartedMain] br.com.prototype.site.SiteApplication    : No active profile set, falling back to 1 default profile: "default"
-2024-04-05T14:46:03.845-03:00  INFO 23292 --- [projeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-04-05T14:46:03.845-03:00  INFO 23292 --- [projeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-04-05T14:46:04.594-03:00  INFO 23292 --- [projeta] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e815161b-a918-367e-81e7-64e0b325b443
-2024-04-05T14:46:04.637-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2024-04-05T14:46:04.643-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.645-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.654-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.656-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.657-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$468/0x000000080130f598] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.658-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.664-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.674-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.675-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.676-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.678-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.681-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.689-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.691-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.692-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.694-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:04.695-03:00  WARN 23292 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T14:46:05.088-03:00  INFO 23292 --- [projeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3001 (http)
-2024-04-05T14:46:05.101-03:00  INFO 23292 --- [projeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-04-05T14:46:05.102-03:00  INFO 23292 --- [projeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-04-05T14:46:05.161-03:00  INFO 23292 --- [projeta] [restartedMain] o.a.c.c.C.[.[localhost].[/projeta]       : Initializing Spring embedded WebApplicationContext
-2024-04-05T14:46:05.161-03:00  INFO 23292 --- [projeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1315 ms
-2024-04-05T14:46:05.277-03:00  INFO 23292 --- [projeta] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-04-05T14:46:05.698-03:00  WARN 23292 --- [projeta] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2024-04-05T14:46:05.815-03:00  INFO 23292 --- [projeta] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2024-04-05T14:46:05.914-03:00  WARN 23292 --- [projeta] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2024-04-05T14:46:05.936-03:00  INFO 23292 --- [projeta] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2024-04-05T14:46:06.037-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2024-04-05T14:46:06.043-03:00  INFO 23292 --- [projeta] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T14:46:06.068-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2024-04-05T14:46:06.069-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2024-04-05T14:46:06.069-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2024-04-05T14:46:06.069-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2024-04-05T14:46:06.069-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2024-04-05T14:46:06.070-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2024-04-05T14:46:06.070-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2024-04-05T14:46:06.456-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2024-04-05T14:46:06.459-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2024-04-05T14:46:06.461-03:00  INFO 23292 --- [projeta] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2024-04-05T14:46:06.465-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1712339166465 with initial instances count: 2
-2024-04-05T14:46:06.468-03:00  INFO 23292 --- [projeta] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application PROJETA with eureka with status UP
-2024-04-05T14:46:06.469-03:00  INFO 23292 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1712339166469, current=UP, previous=STARTING]
-2024-04-05T14:46:06.472-03:00  INFO 23292 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/NITRO-CAR-WIN:projeta:3001: registering service...
-2024-04-05T14:46:06.493-03:00  INFO 23292 --- [projeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3001 (http) with context path '/projeta'
-2024-04-05T14:46:06.494-03:00  INFO 23292 --- [projeta] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 3001
-2024-04-05T14:46:06.575-03:00  INFO 23292 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/NITRO-CAR-WIN:projeta:3001 - registration status: 204
-2024-04-05T14:46:06.583-03:00  INFO 23292 --- [projeta] [restartedMain] br.com.prototype.site.SiteApplication    : Started SiteApplication in 3.326 seconds (process running for 3.696)
-2024-04-05T14:51:06.083-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T14:53:52.446-03:00  INFO 23292 --- [projeta] [http-nio-3001-exec-1] o.a.c.c.C.[.[localhost].[/projeta]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-04-05T14:53:52.447-03:00  INFO 23292 --- [projeta] [http-nio-3001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-04-05T14:53:52.448-03:00  INFO 23292 --- [projeta] [http-nio-3001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-04-05T14:56:06.086-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:01:06.096-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:06:06.111-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:11:06.128-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:16:06.133-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:21:06.141-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:26:06.155-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:31:06.159-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:36:06.175-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:41:06.191-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:46:06.204-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:51:06.219-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T15:56:06.228-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:01:06.239-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:06:06.249-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:11:06.265-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:16:06.272-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:21:06.282-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:26:06.293-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:31:06.296-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:36:06.312-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:41:06.320-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:46:06.324-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:51:06.334-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T16:56:06.335-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:01:06.350-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:06:06.366-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:11:06.377-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:16:06.384-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:21:06.399-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:26:06.405-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:31:06.410-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:36:06.417-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:41:06.426-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:46:06.443-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:51:06.454-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T17:56:06.466-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:01:06.475-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:06:06.490-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:11:06.505-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:16:06.515-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:21:06.531-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:26:04.619-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:31:04.630-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:36:04.634-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:41:04.640-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:46:04.643-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:51:04.661-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T18:56:04.670-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:01:04.682-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:06:04.684-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:11:04.690-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:16:04.694-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:21:04.698-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:26:04.709-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:31:04.726-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:36:04.741-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:41:04.750-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:46:04.765-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:51:04.768-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T19:56:04.781-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:01:04.786-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:06:04.798-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:11:04.813-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:16:04.822-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:21:04.834-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:26:04.851-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:31:04.854-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:36:04.870-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:41:04.879-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:46:04.894-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:51:04.902-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T20:56:04.909-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:01:04.921-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:06:04.935-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:11:04.952-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:16:04.958-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:21:04.963-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:26:04.976-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:31:04.990-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:36:04.993-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:41:04.997-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:46:05.008-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:51:05.020-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T21:56:05.024-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:01:05.034-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:06:05.047-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:11:05.063-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:16:05.067-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:21:05.082-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:26:05.090-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:31:05.105-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:36:05.117-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:41:05.123-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:46:05.138-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:51:05.146-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T22:56:05.163-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:01:05.166-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:06:05.178-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:11:05.186-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:16:05.197-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:21:05.199-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:26:05.206-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:31:05.214-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:36:05.216-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T23:41:05.227-03:00  INFO 23292 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:18:25.608-03:00  INFO 9225 --- [projeta] [restartedMain] br.com.projeta.site.SiteApplication      : Starting SiteApplication using Java 17.0.11 with PID 9225 (/home/monteiro/workspace/projeta-app/projeta-site/target/classes started by monteiro in /home/monteiro/workspace/projeta-app)
+2024-05-27T19:18:25.616-03:00  INFO 9225 --- [projeta] [restartedMain] br.com.projeta.site.SiteApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-05-27T19:18:25.661-03:00  INFO 9225 --- [projeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-27T19:18:25.662-03:00  INFO 9225 --- [projeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-27T19:18:26.236-03:00  INFO 9225 --- [projeta] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e815161b-a918-367e-81e7-64e0b325b443
+2024-05-27T19:18:26.280-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-05-27T19:18:26.285-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.288-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.297-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.299-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.299-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$468/0x00007f97f830cfc8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.301-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.307-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.317-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.319-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.320-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'default.org.springframework.cloud.netflix.eureka.loadbalancer.LoadBalancerEurekaAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.322-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.325-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.335-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.338-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.339-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.341-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.342-03:00  WARN 9225 --- [projeta] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-27T19:18:26.629-03:00  INFO 9225 --- [projeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3001 (http)
+2024-05-27T19:18:26.638-03:00  INFO 9225 --- [projeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-27T19:18:26.639-03:00  INFO 9225 --- [projeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-27T19:18:26.678-03:00  INFO 9225 --- [projeta] [restartedMain] o.a.c.c.C.[.[localhost].[/projeta]       : Initializing Spring embedded WebApplicationContext
+2024-05-27T19:18:26.679-03:00  INFO 9225 --- [projeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1017 ms
+2024-05-27T19:18:26.767-03:00  INFO 9225 --- [projeta] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-05-27T19:18:27.071-03:00  WARN 9225 --- [projeta] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-05-27T19:18:27.108-03:00  INFO 9225 --- [projeta] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-05-27T19:18:27.145-03:00  WARN 9225 --- [projeta] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-05-27T19:18:27.168-03:00  INFO 9225 --- [projeta] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-05-27T19:18:27.240-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-05-27T19:18:27.244-03:00  INFO 9225 --- [projeta] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:18:27.257-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-05-27T19:18:27.258-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-05-27T19:18:27.258-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-05-27T19:18:27.258-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-05-27T19:18:27.258-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-05-27T19:18:27.258-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-05-27T19:18:27.258-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-05-27T19:18:27.590-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-05-27T19:18:27.594-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-05-27T19:18:27.596-03:00  INFO 9225 --- [projeta] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-05-27T19:18:27.602-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1716848307602 with initial instances count: 2
+2024-05-27T19:18:27.604-03:00  INFO 9225 --- [projeta] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application PROJETA with eureka with status UP
+2024-05-27T19:18:27.605-03:00  INFO 9225 --- [projeta] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1716848307605, current=UP, previous=STARTING]
+2024-05-27T19:18:27.607-03:00  INFO 9225 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/172.22.87.91:projeta:3001: registering service...
+2024-05-27T19:18:27.622-03:00  INFO 9225 --- [projeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3001 (http) with context path '/projeta'
+2024-05-27T19:18:27.624-03:00  INFO 9225 --- [projeta] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 3001
+2024-05-27T19:18:27.639-03:00  INFO 9225 --- [projeta] [restartedMain] br.com.projeta.site.SiteApplication      : Started SiteApplication in 2.396 seconds (process running for 2.687)
+2024-05-27T19:18:27.709-03:00  INFO 9225 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/172.22.87.91:projeta:3001 - registration status: 204
+2024-05-27T19:23:27.261-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:28:27.262-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:33:27.264-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:38:27.264-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:39:20.626-03:00  INFO 9225 --- [projeta] [http-nio-3001-exec-1] o.a.c.c.C.[.[localhost].[/projeta]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27T19:39:20.627-03:00  INFO 9225 --- [projeta] [http-nio-3001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-27T19:39:20.628-03:00  INFO 9225 --- [projeta] [http-nio-3001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-05-27T19:43:27.266-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:48:27.267-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:53:27.269-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T19:58:27.271-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:03:27.272-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:08:27.273-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:13:27.274-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:18:27.276-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:23:27.278-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:28:27.280-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:33:27.282-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:38:27.284-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:43:27.286-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:48:27.286-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:53:27.287-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T20:58:27.289-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T21:03:27.290-03:00  INFO 9225 --- [projeta] [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-27T21:07:14.644-03:00  INFO 9225 --- [projeta] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application PROJETA with eureka with status DOWN
+2024-05-27T21:07:14.645-03:00  INFO 9225 --- [projeta] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1716854834645, current=DOWN, previous=UP]
+2024-05-27T21:07:14.645-03:00  INFO 9225 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/172.22.87.91:projeta:3001: registering service...
+2024-05-27T21:07:14.654-03:00  INFO 9225 --- [projeta] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/172.22.87.91:projeta:3001 - registration status: 204
+2024-05-27T21:07:14.659-03:00  INFO 9225 --- [projeta] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-05-27T21:07:17.663-03:00  INFO 9225 --- [projeta] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-05-27T21:07:17.675-03:00  INFO 9225 --- [projeta] [SpringApplicationShutdownHook] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://admin:admin@localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/PROJETA/172.22.87.91:projeta:3001": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/PROJETA/172.22.87.91:projeta:3001": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:672)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:87)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1195)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1183)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1144)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1090)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:91)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:90)
+	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:123)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:184)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:95)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:70)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:112)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.support.BasicAuthenticationInterceptor.intercept(BasicAuthenticationInterceptor.java:79)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
+	... 39 more
+
+2024-05-27T21:07:17.675-03:00  WARN 9225 --- [projeta] [SpringApplicationShutdownHook] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/PROJETA/172.22.87.91:projeta:3001": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2024-05-27T21:07:17.678-03:00  INFO 9225 --- [projeta] [SpringApplicationShutdownHook] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://admin:admin@localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/PROJETA/172.22.87.91:projeta:3001": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/PROJETA/172.22.87.91:projeta:3001": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:672)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:87)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1195)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1183)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1144)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1090)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:91)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:90)
+	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:123)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:184)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:95)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:70)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:112)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.support.BasicAuthenticationInterceptor.intercept(BasicAuthenticationInterceptor.java:79)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
+	... 40 more
+
+2024-05-27T21:07:17.678-03:00  WARN 9225 --- [projeta] [SpringApplicationShutdownHook] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/PROJETA/172.22.87.91:projeta:3001": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2024-05-27T21:07:17.678-03:00 ERROR 9225 --- [projeta] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_PROJETA/172.22.87.91:projeta:3001 - de-registration failedCannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.1.jar:2.0.1]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.1.jar:2.0.1]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-2.0.1.jar:2.0.1]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-2.0.1.jar:2.0.1]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.1.jar:2.0.1]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916) ~[eureka-client-2.0.1.jar:2.0.1]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892) ~[eureka-client-2.0.1.jar:2.0.1]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) ~[spring-cloud-context-4.1.0.jar:4.1.0]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1202) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1195) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1183) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1144) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1090) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145) ~[spring-boot-3.2.3.jar:3.2.3]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114) ~[spring-boot-3.2.3.jar:3.2.3]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-05-27T21:07:17.684-03:00  INFO 9225 --- [projeta] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
