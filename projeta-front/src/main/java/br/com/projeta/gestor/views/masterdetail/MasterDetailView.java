@@ -139,7 +139,7 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
                                 clearForm();
                                 refreshGrid();
                                 NotificacaoAlert.getInstance().alerta("Sucesso",
-                                        "Senha do usuário atualizado com sucesso.");
+                                        "Senha do usuário foi restaurada com sucesso.");
                             } catch (Exception ex) {
                                 NotificacaoAlert.getInstance().alerta("Error", ex.getMessage());
                             }

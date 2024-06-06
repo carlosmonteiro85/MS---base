@@ -30,7 +30,9 @@ import com.projeta.user.domain.service.UsuarioService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("users")
 @RequiredArgsConstructor
@@ -102,4 +104,11 @@ public class UserController {
     @PathVariable(name = "id", required = true) Long id) {
     return ResponseEntity.ok(historico.buscarHistorico(id));
   }
+
+  @PostMapping("/reset-password")
+	public ResponseEntity<Void> resetPassword(@RequestParam(required = true) Long idCredencial){
+    log.info("Resetting password for idCredencial: {}", idCredencial);
+    usuarioService.resetPassword(idCredencial);
+		return ResponseEntity.ok().build();
+	}
 }

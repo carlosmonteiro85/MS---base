@@ -153,8 +153,4 @@ public class AuthenticationService {
 	public List<RoleRespose> getRoles(String token) {
 		return jwtService.findRoles(token);
 	}
-
-	public void resetPassword(Long idCredencial) {
-		credencialUsuarioService.resetPassword(idCredencial);
-	}
 }

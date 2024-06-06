@@ -177,4 +177,8 @@ public class UsuarioService {
       filtros.getPerfils(), 
       pageRequest) ;
   }
+
+  public void resetPassword(Long idCredencial) {
+		credencialService.resetPassword(idCredencial);
+	}
 }

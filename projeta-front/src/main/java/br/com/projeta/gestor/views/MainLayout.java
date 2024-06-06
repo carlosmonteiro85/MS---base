@@ -15,6 +15,7 @@ import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.Scroller;
@@ -89,17 +90,17 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         if (authService.validarRole(Arrays.asList("ADMIN", "CLIENTE", "MEDICO", "ROOT"))) {
-            nav.addItem(
-                    new SideNavItem("Bem vindo", HelloWorldView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
+            nav.addItem( new SideNavItem("Bem vindo", HelloWorldView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
         }
+
         if (authService.validarRole(Arrays.asList("ADMIN", "ROOT"))) {
-            nav.addItem(
-                    new SideNavItem("Cadastro usuários", UsuarioFormView.class, LineAwesomeIcon.USER.create()));
+            SideNavItem adminSection = new SideNavItem("Gestão");
+            adminSection.setPrefixComponent(VaadinIcon.TRENDING_UP.create());
+            adminSection.addItem(new SideNavItem("Cadastro usuários", UsuarioFormView.class, LineAwesomeIcon.USER.create()));
+            adminSection.addItem(new SideNavItem("Gestão usuários", MasterDetailView.class, VaadinIcon.USERS.create()));
+            nav.addItem(adminSection);
         }
-        if (authService.validarRole(Arrays.asList("ADMIN", "ROOT"))) {
-            nav.addItem(
-                    new SideNavItem("Gestão usuários", MasterDetailView.class, LineAwesomeIcon.COLUMNS_SOLID.create()));
-        }
+
         if (authService.validarRole(Arrays.asList("ADMIN", "CLIENTE", "MEDICO", "ROOT"))) {
             nav.addItem(
                     new SideNavItem("Listagem Usuários", GestaoUsuariosFiltroView.class,
