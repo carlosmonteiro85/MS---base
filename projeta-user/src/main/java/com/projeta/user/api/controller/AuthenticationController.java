@@ -2,12 +2,13 @@ package com.projeta.user.api.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,11 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projeta.user.api.dto.request.AuthenticationRequest;
 import com.projeta.user.api.dto.request.RegisterRequest;
+import com.projeta.user.api.dto.request.RestorePasswordRequest;
 import com.projeta.user.api.dto.response.CredencialUsuarioResponse;
 import com.projeta.user.api.dto.response.RoleRespose;
-import com.projeta.user.domain.exception.NegocioException;
 import com.projeta.user.domain.service.AuthenticationService;
 import com.projeta.user.domain.service.LogoutService;
+import com.projeta.user.domain.service.PasswordResetTokenService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -33,6 +35,7 @@ public class AuthenticationController {
 
 	private final AuthenticationService service;
 	private final LogoutService logoutService;
+	private final PasswordResetTokenService passwordResetTokenService;
 
 	@PostMapping("/register")
 	public ResponseEntity<CredencialUsuarioResponse> register(@RequestBody @Valid RegisterRequest request) {
@@ -72,15 +75,15 @@ public class AuthenticationController {
 		service.refreshToken(request, response);
 	}
 
-	@PostMapping("/recuperar-senha")
-	public ResponseEntity<Void> recuperarPassword(@RequestBody String email){
+	@PostMapping("/recuperar-senha/{email}")
+	public ResponseEntity<Void> recuperarPassword(@PathVariable(name = "email", required = true) String email){
+		passwordResetTokenService.restaurarPassword(email);
+		return ResponseEntity.ok().build();
+	}
 
-		if(Objects.isNull(email) || email.isBlank()){
-			throw new NegocioException("Precisa ser um email válido.");
-		}
-		// TODO precisa implementar	
-		// service.resetPassword(idCredencial);
-			System.out.println(email);
+	@PutMapping("/restore-password")
+	public ResponseEntity<Void> restorePassword(@RequestBody @Valid RestorePasswordRequest request) {
+		service.restorePassword(request);
 		return ResponseEntity.ok().build();
 	}
 }

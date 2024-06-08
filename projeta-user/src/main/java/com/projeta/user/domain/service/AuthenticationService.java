@@ -12,10 +12,12 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projeta.user.api.dto.request.AuthenticationRequest;
 import com.projeta.user.api.dto.request.RegisterRequest;
+import com.projeta.user.api.dto.request.RestorePasswordRequest;
 import com.projeta.user.api.dto.response.CredencialUsuarioResponse;
 import com.projeta.user.api.dto.response.RoleRespose;
 import com.projeta.user.domain.exception.TokenExceprion;
 import com.projeta.user.domain.model.CredencialUsuario;
+import com.projeta.user.domain.model.PasswordResetToken;
 import com.projeta.user.domain.model.Token;
 import com.projeta.user.domain.model.enuns.TokenType;
 import com.projeta.user.domain.model.util.AppConstants;
@@ -32,6 +34,7 @@ import lombok.RequiredArgsConstructor;
 public class AuthenticationService {
 
 	private final CredencialUsuarioRepository repository;
+	private final PasswordResetTokenService passwordResetTokenService;
 	private final CredencialUsuarioService credencialUsuarioService;
 	private final TokenRepository tokenRepository;
 	private final JwtService jwtService;
@@ -116,7 +119,6 @@ public class AuthenticationService {
 	}
 
 	public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
 		final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 		final String refreshToken;
 		final String userEmail;
@@ -146,11 +148,15 @@ public class AuthenticationService {
 		if (Boolean.FALSE.equals(isValid)) {
 			throw new TokenExceprion("Login expirado");
 		}
-
 		return jwtService.isTokenValid(token, credencial.getUsername());
 	}
 
 	public List<RoleRespose> getRoles(String token) {
 		return jwtService.findRoles(token);
 	}
+
+  public void restorePassword(RestorePasswordRequest request) {
+		PasswordResetToken resetToken = passwordResetTokenService.findByToken(request.getToken());
+		credencialUsuarioService.updatePassword(resetToken.getCredencial().getId(), request.getPassword());
+  }
 }

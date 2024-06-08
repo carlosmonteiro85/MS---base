@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>Email Cotador Mapfre</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff4f4;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            background-color: #f5f4f4;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+            padding: 5px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        .x_topo {
+            background-color: #ffffff;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .x_imagemTopo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .x_adaptacao-small-device {
+            margin-top: 30px;
+        }
+
+        .x_form-group {
+            margin-bottom: 20px;
+        }
+
+        .x_form-label span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .x_form-control {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .x_padding-top-30px {
+            padding-top: 30px;
+        }
+
+        .x_espaco-menu {
+            margin-top: 20px;
+        }
+
+        .x_container-fluid {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .x_row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .x_col-md-12,
+        .x_col-md-6 {
+            float: left;
+            width: 100%;
+        }
+
+        .x_col-md-6 {
+            width: 50%;
+        }
+
+        .x_hidden-sm {
+            display: none;
+        }
+
+        #x_confia {
+            display: block;
+            font-size: 12px;
+            color: #000;
+            font-family: tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body role="application" class="ms-font-s disableTextSelection ms-Fabric--isFocusHidden">
+    <div>
+        <br aria-hidden="true">
+        <div class="x_topo">
+            <div class="x_imagemTopo">
+                <img src="https://vaadin.com/images/trademark/PNG/VaadinLogo_RGB_500x155.png" alt="Logo">
+            </div>
+        </div>
+
+        <div class="x_container-fluid x_padding-top-30px">
+            <div class="x_row x_adaptacao-small-device">
+                <div class="x_col-md-10 x_espaco-menu">
+                    <div id="x_portal">
+                        <div id="x_conteudo">
+                            <div id="x_principal">
+                                <div th:if="${tipoMensagem.equals('ENVIO_MANUAL')}">
+                                    <div class="x_col-md-12">
+                                        <div class="x_row">
+                                            <div th:if="${email.anexos == null or email.anexos.isEmpty()}"
+                                                class="x_col-md-12 x_form-group">
+                                                Prezado(a),<br /><br />
+                                                Recebemos uma solicitação para redefinir a senha da sua conta. Se você
+                                                não fez essa solicitação, por <br />favor, ignore este e-mail.
+                                                <br />Para redefinir sua senha, clique no link abaixo:<br />
+                                            </div>
+                                            <div class="x_col-md-12 x_form-group">
+                                                <span th:text="${email.textoAnexo}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="x_col-md-12">
+                                        <div class="x_row">
+                                            Importante: Este link é válido por apenas 10 minutos. Após esse período,
+                                            será necessário solicitar <br /> um novo link de redefinição.<br />
+                                            Se você tiver qualquer problema ou dúvida, não hesite em nos contatar.<br /><br />
+                                            <div class="x_col-md-6 x_form-group">
+                                                <label class="x_form-label">
+                                                    <span>Endereço de e-mail para contato:</span>
+                                                    <span th:text="${email.emailDe}">email@email.com</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="x_col-md-12">
+                                        <div class="x_row">
+                                            <div class="x_col-md-12 x_form-group">
+                                                Atenciosamente,<br />
+                                                Projeta
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -9,6 +9,21 @@ spring:
     servlet:
       content-type: text/html
     cache: false
+  mail:
+    host: ${CONFIG_EMAIL_HOST:smtp.gmail.com}
+    port: ${CONFIG_EMAIL_PORT:587}
+    username: ${CONFIG_EMAIL_USERNAME:denguezeraanhanguera@gmail.com}
+    password: ${CONFIG_EMAIL_PASSWORD:luzvnifivtzsqmfp}
+    email-remetente: ${CONFIG_EMAIL_REMETENTE_PADRAO:suporte@projeta.com}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        transport:
+          protocol: smtp
+        debug: true
 
 eureka:
   client:
@@ -35,7 +50,7 @@ application:
       secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
       expiration: 3600000 # 1 hora
       refresh-token:
-        expiration: 3600000 # 8 horas
+        expiration: 28800000 # 8 horas
 
 springdoc:
   api-docs:
@@ -49,12 +64,12 @@ logging:
     name: ./logs/log-file-api-auth.log
 
 nome:
-  sistema: Base
+  sistema: Projeta
 
 url:
   redirect:
     sucess: http://localhost:8080/projeta-gestor/
+  base: http://localhost:8080/api-auth/api-auth/
 
-
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+resources:
+  static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/

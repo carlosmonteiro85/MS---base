@@ -71,6 +71,10 @@ public class CredencialUsuarioService {
         .orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado com estas credenciais de login."));
   }
 
+  public Optional<CredencialUsuario> buscarCredencialPeloEmail(String email) {
+    return repository.findByEmail(email);
+  }
+
   public Optional<CredencialUsuario> findByLogin(String login) {
     Optional<CredencialUsuario> credencial = repository.findByUsername(login);
 
@@ -121,6 +125,12 @@ public class CredencialUsuarioService {
     credencial.setCpf(request.getCpf());
     credencial.setEmail(request.getEmail());
     updatePerfils(credencial, request);
+  }
+
+  public void updatePassword(Long id, String password) {
+    CredencialUsuario credencial = findById(id);
+    credencial.setPassword(passwordEncoder.encode(password));
+    repository.save(credencial);
   }
 
   public void updatePerfils(CredencialUsuario credencial, UsuarioResquest request) {

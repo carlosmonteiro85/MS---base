@@ -87,16 +87,14 @@
         return; 
     }
 
-      var formData = {
-        email: document.getElementById('email').value
-      };
+    // TODO colocar essa urlbase como dinamica
+    var url = `/api-auth/api-auth/auth/recuperar-senha/${email}`;
 
-      fetch('/api-auth/api-auth/auth/recuperar-senha', {
+      fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+        }
       })
         .then(response => {
           if (response.status === 404) {
